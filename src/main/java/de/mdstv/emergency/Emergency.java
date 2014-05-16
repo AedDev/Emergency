@@ -17,13 +17,6 @@ public class Emergency
   public static ArrayList<EmergencyType> emergencies = new ArrayList();
   
   @Override
-  public void onDisable()
-  {
-    super.onDisable();
-    getLogger().info("[EMERGENCY] Emergency Plugin disabled!");
-  }
-  
-  @Override
   public void onEnable()
   {
     super.onEnable();
