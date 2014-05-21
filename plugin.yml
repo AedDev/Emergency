@@ -1,0 +1,9 @@
+name: Emergency
+version: 2.0
+description: This is the 2nd generation of the Emegency Plugin. It comes with a customizable ticket system which your players can use to report an emergency.
+author: Enrico Ludwig (Morph)
+main: de.mdstv.emergency2.Emergency
+commands:
+    helpme:
+        description: Creates a emergency ticket
+        usage: /helpme <reason> [level]
