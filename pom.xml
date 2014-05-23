@@ -33,6 +33,12 @@
                     <include>plugin.yml</include>
                 </includes>
             </resource>
+            <resource>
+                <directory>/de/mdstv/emergency2/res</directory>
+                <includes>
+                    <include>emlevels.default.yml</include>
+                </includes>
+            </resource>
         </resources>
     </build>
 </project>
