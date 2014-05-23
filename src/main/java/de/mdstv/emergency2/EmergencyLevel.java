@@ -17,6 +17,8 @@
  */
 package de.mdstv.emergency2;
 
+import org.bukkit.ChatColor;
+
 /**
  * Describes the level of emergency
  */
@@ -24,6 +26,7 @@ public class EmergencyLevel {
 
     private int levelPoints;
     private String levelName;
+    private ChatColor levelColor;
 
     private boolean isDefault = false;
 
@@ -33,11 +36,13 @@ public class EmergencyLevel {
      * @param levelPoints The level points represents the priority
      * @param levelName The unique name for this level
      * @param isDefault Sets this {@link EmergencyLevel} as default
+     * @param levelColor The color for this {@link EmergencyLevel}
      */
-    public EmergencyLevel(int levelPoints, String levelName, boolean isDefault) {
+    public EmergencyLevel(int levelPoints, String levelName, boolean isDefault, ChatColor levelColor) {
         this.levelPoints = levelPoints;
         this.levelName = levelName;
         this.isDefault = isDefault;
+        this.levelColor = levelColor;
     }
 
     /**
@@ -102,5 +107,21 @@ public class EmergencyLevel {
      */
     public boolean isDefault() {
         return isDefault;
+    }
+
+    /**
+     * Returns the {@link ChatColor} for this {@link EmergencyLevel}
+     * @return {@link ChatColor} for this {@link EmergencyLevel}
+     */
+    public ChatColor getLevelColor() {
+        return levelColor;
+    }
+
+    /**
+     * Sets the {@link ChatColor} for this {@link EmergencyLevel}
+     * @param levelColor {@link ChatColor} to use
+     */
+    public void setLevelColor(ChatColor levelColor) {
+        this.levelColor = levelColor;
     }
 }
