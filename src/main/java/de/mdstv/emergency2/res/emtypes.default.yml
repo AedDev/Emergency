@@ -21,6 +21,6 @@ EmergencyTypes:
         Color: C
         Value: 750
     Help:
-        default: true
+        Default: true
         Color: 1
         Value: 250
