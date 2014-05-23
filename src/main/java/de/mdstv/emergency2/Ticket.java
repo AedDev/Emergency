@@ -32,11 +32,18 @@ public class Ticket {
          *
          * @param levelPoints The level points represents the priority
          * @param levelName The unique name for this level
+         * @param isDefault Sets this {@link EmergencyLevel} as default
          */
         public EmergencyLevel(int levelPoints, String levelName, boolean isDefault) {
             this.levelPoints = levelPoints;
             this.levelName = levelName;
             this.isDefault = isDefault;
+        }
+
+        /**
+         * Creates a new {@link EmergencyLevel}
+         */
+        public EmergencyLevel() {
         }
 
         /**
