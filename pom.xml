@@ -34,7 +34,7 @@
                 </includes>
             </resource>
             <resource>
-                <directory>/de/mdstv/emergency2/res</directory>
+                <directory>/src/main/java/de/mdstv/emergency2/res</directory>
                 <includes>
                     <include>emlevels.default.yml</include>
                 </includes>
