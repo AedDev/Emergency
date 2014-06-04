@@ -80,6 +80,10 @@ public class Emergency extends JavaPlugin {
             InputStream emLevelsInput = getClass().getResourceAsStream(resPath);
             FileOutputStream fos = new FileOutputStream(this.emergencyLevelsConfigFile);
 
+            if (emLevelsInput == null) {
+                throw new NullPointerException("Could not read emlevels.default.yml");
+            }
+            
             byte[] writeBuffer = new byte[4096];
             while (emLevelsInput.read(writeBuffer) > -1) {
                 fos.write(writeBuffer);
