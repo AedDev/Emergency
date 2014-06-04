@@ -76,7 +76,7 @@ public class Emergency extends JavaPlugin {
      */
     private void writeDefaultEmergencyLevelsConfig() {
         try {
-            String resPath = "/de/mdstv/emergency2/res/emlevels.default.yml";
+            String resPath = "/emlevels.default.yml";
             InputStream emLevelsInput = getClass().getResourceAsStream(resPath);
             FileOutputStream fos = new FileOutputStream(this.emergencyLevelsConfigFile);
 
