@@ -17,15 +17,19 @@
  */
 package de.mdstv.emergency2;
 
+import de.mdstv.emergency2.commands.CommandHelpMe;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import org.bukkit.ChatColor;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -48,6 +52,14 @@ public class Emergency extends JavaPlugin {
         super.onEnable();
 
         this.initializeConfiguration();
+        this.initializeCommands();
+    }
+    
+    /**
+     * Initializes the Emergency Commands
+     */
+    private void initializeCommands() {
+        getCommand("helpme").setExecutor(new CommandHelpMe());
     }
 
     /**
@@ -84,7 +96,7 @@ public class Emergency extends JavaPlugin {
                 throw new NullPointerException("Could not read emlevels.default.yml");
             }
             
-            byte[] writeBuffer = new byte[4096];
+            byte[] writeBuffer = new byte[1];
             while (emLevelsInput.read(writeBuffer) > -1) {
                 fos.write(writeBuffer);
             }
@@ -106,6 +118,11 @@ public class Emergency extends JavaPlugin {
 
         // Load emerhency levels
         ConfigurationSection emSec = this.emLevelsConfig.getConfigurationSection("EmergencyLevels");
+        
+        if (emSec == null) {
+            throw new NullPointerException("Could not load emlevels.yml, file seems to be wrong structured.");
+        }
+        
         Set<String> levels = emSec.getKeys(false);
 
         Iterator<String> typeIt = levels.iterator();
